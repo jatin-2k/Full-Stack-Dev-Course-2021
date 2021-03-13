@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component{
     constructor(props){
@@ -49,22 +49,24 @@ class DishDetail extends Component{
         if(this.props.dish!=null){
 
             return(
-                <div  className="row d-flex">
-                    <div className="col-12 col-md-5 m-1">
-                        <Card>
-                            <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name}/>
-                            <CardBody>
-                                <CardTitle>{this.props.dish.name}</CardTitle>
-                                <CardText>
-                                    {this.props.dish.description}
-                                </CardText>
-                            </CardBody>
-                        </Card>
-                    </div>
-                    <div className="col-12 m-1 col-md-5">
-                        {this.renderComments(this.props.dish.comments)}
-                    </div>
-                </div> 
+                <div className="container">
+                    <div  className="row d-flex">
+                        <div className="col-12 col-md-5 m-1">
+                            <Card>
+                                <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name}/>
+                                <CardBody>
+                                    <CardTitle>{this.props.dish.name}</CardTitle>
+                                    <CardText>
+                                        {this.props.dish.description}
+                                    </CardText>
+                                </CardBody>
+                            </Card>
+                        </div>
+                        <div className="col-12 m-1 col-md-5">
+                            {this.renderComments(this.props.dish.comments)}
+                        </div>
+                    </div> 
+                </div>
             );
         }
         else{
