@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
     function stringToDate(dateString){
@@ -43,6 +44,16 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
             return(
                 <div className="container">
+                    <div className="row">
+                        <Breadcrumb>
+                            <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                        </Breadcrumb>
+                        <div className="col-12">
+                            <h3>{props.dish.name}</h3>
+                            <hr/>
+                        </div>
+                    </div>
                     <div  className="row d-flex">
                         <div className="col-12 col-md-5 m-1">
                             <Card>
@@ -56,7 +67,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
                             </Card>
                         </div>
                         <div className="col-12 m-1 col-md-5">
-                            {renderComments(props.dish.comments)}
+                            {renderComments(props.comments)}
                         </div>
                     </div> 
                 </div>
