@@ -1,21 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class DishDetail extends Component{
-    constructor(props){
-        super(props);
 
-        this.state = {
-
-        };
-    }
-
-    stringToDate(dateString){
+    function stringToDate(dateString){
         var date = new Date(Date.parse(dateString));
         return(date.toDateString().slice(4));
     }
 
-    renderComments(commentsArray){
+    function renderComments(commentsArray){
 
         const comments = commentsArray.map((comment) => {
             if(comment!=null){
@@ -23,7 +15,7 @@ class DishDetail extends Component{
                     <div className="col-12">
                         <li>
                             {comment.comment}<br/><br/>
-                            -- {comment.author}, {this.stringToDate(comment.date)}<br/><br/>
+                            -- {comment.author}, {stringToDate(comment.date)}<br/><br/>
                         </li>
                     </div>
                 );
@@ -45,25 +37,26 @@ class DishDetail extends Component{
         );
     }
 
-    render(){
-        if(this.props.dish!=null){
+    function DishDetail(props){
+
+        if(props.dish!=null){
 
             return(
                 <div className="container">
                     <div  className="row d-flex">
                         <div className="col-12 col-md-5 m-1">
                             <Card>
-                                <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name}/>
+                                <CardImg width="100%" src={props.dish.image} alt={props.dish.name}/>
                                 <CardBody>
-                                    <CardTitle>{this.props.dish.name}</CardTitle>
+                                    <CardTitle>{props.dish.name}</CardTitle>
                                     <CardText>
-                                        {this.props.dish.description}
+                                        {props.dish.description}
                                     </CardText>
                                 </CardBody>
                             </Card>
                         </div>
                         <div className="col-12 m-1 col-md-5">
-                            {this.renderComments(this.props.dish.comments)}
+                            {renderComments(props.dish.comments)}
                         </div>
                     </div> 
                 </div>
@@ -75,7 +68,5 @@ class DishDetail extends Component{
             );
         }
     }
-
-}
 
 export default DishDetail;
