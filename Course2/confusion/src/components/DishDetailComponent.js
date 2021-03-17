@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
         return(date.toDateString().slice(4));
     }
 
-    function renderComments(commentsArray){
+    function renderComments(commentsArray, addComment, dishId){
 
         const comments = commentsArray.map((comment) => {
             if(comment!=null){
@@ -35,7 +35,7 @@ import { Link } from 'react-router-dom';
                 <ul className="list-unstyled">
                     {comments}
                 </ul>
-                <CommentForm/>
+                <CommentForm dishId={dishId} addComment={addComment}/>
             </div>
         );
     }
@@ -69,7 +69,7 @@ import { Link } from 'react-router-dom';
                             </Card>
                         </div>
                         <div className="col-12 m-1 col-md-5">
-                            {renderComments(props.comments)}
+                            {renderComments(props.comments, props.addComment, props.dish.id)}
                         </div>
                     </div> 
                 </div>
