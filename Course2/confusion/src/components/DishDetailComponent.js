@@ -10,7 +10,7 @@ import { baseUrl } from '../shared/baseUrl';
         return(date.toDateString().slice(4));
     }
 
-    function renderComments(commentsArray, addComment, dishId, errmessC){
+    function renderComments(commentsArray, postComment, dishId, errmessC){
 
         const comments = commentsArray.map((comment) => {
             if(comment!=null){
@@ -42,7 +42,7 @@ import { baseUrl } from '../shared/baseUrl';
                 <ul className="list-unstyled">
                     {comments}
                 </ul>
-                <CommentForm dishId={dishId} addComment={addComment}/>
+                <CommentForm dishId={dishId} postComment={postComment}/>
             </div>
         );
     }
@@ -94,7 +94,7 @@ import { baseUrl } from '../shared/baseUrl';
                             </Card>
                         </div>
                         <div className="col-12 m-1 col-md-5">
-                            {renderComments(props.comments, props.addComment, props.dish.id, props.errmessC)}
+                            {renderComments(props.comments, props.postComment, props.dish.id, props.errmessC)}
                         </div>
                     </div> 
                 </div>
