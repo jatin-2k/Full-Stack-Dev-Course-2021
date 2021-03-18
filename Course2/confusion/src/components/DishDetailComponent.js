@@ -3,6 +3,7 @@ import CommentForm from './CommentFormComponent';
 import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
     function stringToDate(dateString){
         var date = new Date(Date.parse(dateString));
@@ -77,7 +78,7 @@ import { Loading } from './LoadingComponent';
                     <div  className="row d-flex">
                         <div className="col-12 col-md-5 m-1">
                             <Card>
-                                <CardImg width="100%" src={props.dish.image} alt={props.dish.name}/>
+                                <CardImg width="100%" src={baseUrl + props.dish.image} alt={props.dish.name}/>
                                 <CardBody>
                                     <CardTitle>{props.dish.name}</CardTitle>
                                     <CardText>
