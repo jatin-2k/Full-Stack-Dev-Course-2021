@@ -10,7 +10,7 @@ import { baseUrl } from '../shared/baseUrl';
         return(date.toDateString().slice(4));
     }
 
-    function renderComments(commentsArray, addComment, dishId){
+    function renderComments(commentsArray, addComment, dishId, errmessC){
 
         const comments = commentsArray.map((comment) => {
             if(comment!=null){
@@ -30,6 +30,12 @@ import { baseUrl } from '../shared/baseUrl';
             }
         });
 
+        if (errmessC) {
+            return(
+                <h4>{errmessC}</h4>
+            );
+        }
+
         return(
             <div>
                 <h4>Comments</h4>
@@ -43,7 +49,7 @@ import { baseUrl } from '../shared/baseUrl';
 
     function DishDetail(props){
 
-        if(props.isLoading){
+        if(props.isLoadingD){
             return(
                 <div className="container">
                     <div className="row">
@@ -52,11 +58,11 @@ import { baseUrl } from '../shared/baseUrl';
                 </div>
             );
         }
-        else if (props.errmess) {
+        else if (props.errmessD) {
             return(
                 <div className="container">
                     <div className="row">
-                        <h4>{props.errmess}</h4>
+                        <h4>{props.errmessD}</h4>
                     </div>
                 </div>
             );
@@ -88,7 +94,7 @@ import { baseUrl } from '../shared/baseUrl';
                             </Card>
                         </div>
                         <div className="col-12 m-1 col-md-5">
-                            {renderComments(props.comments, props.addComment, props.dish.id)}
+                            {renderComments(props.comments, props.addComment, props.dish.id, props.errmessC)}
                         </div>
                     </div> 
                 </div>
