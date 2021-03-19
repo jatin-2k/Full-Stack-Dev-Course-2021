@@ -2,7 +2,7 @@
   "name": "confusion",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jtagrawal2000.github.io/Full-Stack-Dev-Course-2021/Course2/",
+  "homepage": "https://jtagrawal2000.github.io/Full-Stack-Dev-Course-2021",
   "dependencies": {
     "bootstrap": "^4.6.0",
     "bootstrap-social": "^5.1.1",
